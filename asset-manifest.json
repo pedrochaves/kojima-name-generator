@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/kojima-name-generator/static/css/main.f0f8fcc7.chunk.css",
+    "main.js": "/kojima-name-generator/static/js/main.9693c88c.chunk.js",
+    "main.js.map": "/kojima-name-generator/static/js/main.9693c88c.chunk.js.map",
+    "runtime-main.js": "/kojima-name-generator/static/js/runtime-main.f9f28000.js",
+    "runtime-main.js.map": "/kojima-name-generator/static/js/runtime-main.f9f28000.js.map",
+    "static/js/2.6d1f6041.chunk.js": "/kojima-name-generator/static/js/2.6d1f6041.chunk.js",
+    "static/js/2.6d1f6041.chunk.js.map": "/kojima-name-generator/static/js/2.6d1f6041.chunk.js.map",
+    "index.html": "/kojima-name-generator/index.html",
+    "precache-manifest.5fae01bef5494f2642f0f64fbabc5170.js": "/kojima-name-generator/precache-manifest.5fae01bef5494f2642f0f64fbabc5170.js",
+    "service-worker.js": "/kojima-name-generator/service-worker.js",
+    "static/css/main.f0f8fcc7.chunk.css.map": "/kojima-name-generator/static/css/main.f0f8fcc7.chunk.css.map"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.f9f28000.js",
+    "static/js/2.6d1f6041.chunk.js",
+    "static/css/main.f0f8fcc7.chunk.css",
+    "static/js/main.9693c88c.chunk.js"
+  ]
+}
