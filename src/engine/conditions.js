@@ -26,15 +26,20 @@ const getNameCategory = (d20Value) => {
     return "SUBTEXT";
 };
 
-const determineNameConditions = (dices) => ({
-    hasOneName: dices.d6 < 6,
-    hasTheMan: dices.d4 === 4,
-    hasBigMan: dices.d8 === 6,
-    hasOldMan: dices.d8 === 7,
-    hasBodyCondition: dices.d8 === 8,
-    isClone: dices.d12 === 12,
-    isHideoKojima: dices.d100 === 69,
-    category: getNameCategory(dices.d20),
-});
+const determineNameConditions = (dices) => {
+    const category = getNameCategory(dices.d20);
+
+    return {
+        hasOneName: dices.d6 < 6,
+        hasTheMan: dices.d4 === 4,
+        hasBigMan: dices.d8 === 6,
+        hasOldMan: dices.d8 === 7,
+        hasBodyCondition: dices.d8 === 8,
+        isClone: dices.d12 === 12,
+        isHideoKojima: dices.d100 === 69,
+        category: category,
+        optionCount: category === "COOL" ? 6 : 4,
+    };
+};
 
 export default determineNameConditions;

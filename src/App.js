@@ -68,7 +68,7 @@ class App extends React.Component {
         d100: this.rollDice(100),
     };
     const conditions = determineNameConditions(dices);
-    const randomDice = this.rollDice(conditions.category === "COOL" ? 6 : 4);
+    const randomDice = this.rollDice(conditions.optionCount);
 
     this.setState({
       kojimaName: generateKojimaName(this.state.answers, conditions, randomDice),

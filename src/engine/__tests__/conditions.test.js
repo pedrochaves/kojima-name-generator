@@ -98,6 +98,7 @@ describe("A Hideo Kojima name", () => {
             const conditions = determineNameConditions({ d20: i });
 
             expect(conditions.category).toBe("OCCUPATIONAL");
+            expect(conditions.optionCount).toBe(4);
         }
     });
 
@@ -106,6 +107,7 @@ describe("A Hideo Kojima name", () => {
             const conditions = determineNameConditions({ d20: i });
 
             expect(conditions.category).toBe("HORNY");
+            expect(conditions.optionCount).toBe(4);
         }
     });
 
@@ -114,6 +116,7 @@ describe("A Hideo Kojima name", () => {
             const conditions = determineNameConditions({ d20: i });
 
             expect(conditions.category).toBe("THE");
+            expect(conditions.optionCount).toBe(4);
         }
     });
 
@@ -122,6 +125,7 @@ describe("A Hideo Kojima name", () => {
             const conditions = determineNameConditions({ d20: i });
 
             expect(conditions.category).toBe("COOL");
+            expect(conditions.optionCount).toBe(6);
         }
     });
 
@@ -130,6 +134,7 @@ describe("A Hideo Kojima name", () => {
             const conditions = determineNameConditions({ d20: i });
 
             expect(conditions.category).toBe("VIOLENT");
+            expect(conditions.optionCount).toBe(4);
         }
     });
 
