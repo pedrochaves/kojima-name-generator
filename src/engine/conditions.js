@@ -1,7 +1,5 @@
-const getRandomInt = (max) => Math.floor(Math.random() * Math.floor(max));
-
 const getNameCategory = (d20Value) => {
-    if (d20Value == 1) {
+    if (d20Value === 1) {
         return "NORMAL";
     }
 
@@ -30,12 +28,12 @@ const getNameCategory = (d20Value) => {
 
 const determineNameConditions = (dices) => ({
     hasOneName: dices.d6 < 6,
-    hasTheMan: dices.d4 == 4,
-    hasBigMan: dices.d8 == 6,
-    hasOldMan: dices.d8 == 7,
-    hasBodyCondition: dices.d8 == 8,
-    isClone: dices.d12 == 12,
-    isHideoKojima: dices.d100 == 69,
+    hasTheMan: dices.d4 === 4,
+    hasBigMan: dices.d8 === 6,
+    hasOldMan: dices.d8 === 7,
+    hasBodyCondition: dices.d8 === 8,
+    isClone: dices.d12 === 12,
+    isHideoKojima: dices.d100 === 69,
     category: getNameCategory(dices.d20),
 });
 

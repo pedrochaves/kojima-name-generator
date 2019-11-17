@@ -13,7 +13,7 @@ beforeEach(() => {
         intangibleFear: "Death", // 2.8
         nameSoundsLike: "Brain", // 2.13
         kubrickWord: "Orange", // 3.17
-        joyDivisionAlbum: "??", // 3.18
+        musicAlbum: "American", // 3.18
         scientificTerm: "Quantic", // 3.19
     };
 });

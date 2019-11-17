@@ -36,7 +36,7 @@ const createTheName = (answers, diceRoll) => {
 const createCoolName = (answers, diceRoll) => {
     let names = [
         answers.kubrickWord,
-        answers.joyDivisionAlbum,
+        answers.musicAlbum,
         answers.scientificTerm,
         answers.goodAt,
         answers.intangibleFear,

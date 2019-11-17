@@ -1,26 +1,111 @@
 import React from 'react';
-import logo from './logo.svg';
+import {
+  Container,
+  Button,
+  Row,
+  Col,
+  Jumbotron,
+} from 'react-bootstrap';
 import './App.css';
+import { Intro, PersonalData, KojimaData } from './components';
+import { determineNameConditions, generateKojimaName } from './engine';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+class App extends React.Component {
+  constructor() {
+    super();
+
+    this.state = {
+      showForm: false,
+      answers: {
+        // Personal Data
+        originalName: "Pedro Chaves",
+        profession: "Programming",
+        firstPet: "Poodle",
+        embarassingStory: "Birthday Yelling",
+        stabbingObject: "Knife",
+        goodAt: "Computing",
+        intangibleFear: "Death",
+        tangibleFear: "Falling",
+        lastThing: "Breakfast",
+        bodyCondition: "Tired",
+        stateOfMatter: "Liquid",
+        nameSoundsLike: "Rock",
+        zodiacSign: "Cancer",
+        personality: "Calm",
+        // Kojima Data
+        favoriteFilmCharacter: "Scott Pilgrim",
+        kubrickWord: "Orange",
+        musicAlbum: "American",
+        scientificTerm: "Quantic",
+        militaryHardware: "Machineguns",
+        madsAction: "Cooking",
+      },
+      conditions: {}
+    };
+  }
+
+  start() {
+    this.setState({ showForm: true });
+  }
+
+  saveAnswer(answerKey, answerValue) {
+    this.setState((state) => ({
+      answers: { ...state.answers, [answerKey]: answerValue }
+    }));
+  }
+
+  rollDice(diceSize) {
+    return Math.floor(Math.random() * Math.floor(diceSize)) + 1;
+  }
+
+  discoverName() {
+    const dices = {
+        d4: this.rollDice(4),
+        d6: this.rollDice(6),
+        d8: this.rollDice(8),
+        d12: this.rollDice(12),
+        d20: this.rollDice(20),
+        d100: this.rollDice(100),
+    };
+    const conditions = determineNameConditions(dices);
+    const randomDice = this.rollDice(conditions.category === "COOL" ? 6 : 4);
+
+    this.setState({
+      kojimaName: generateKojimaName(this.state.answers, conditions, randomDice),
+      showForm: false,
+      conditions: conditions,
+    });
+  }
+
+  render() {
+    return (
+      <>
+      <Container>
+        <Intro start={this.start.bind(this)} />
+      </Container>
+      <Container className={this.state.showForm ? 'visible' : 'invisible'}>
+        <Row>
+          <Col>
+            <PersonalData onChange={this.saveAnswer.bind(this)} />
+          </Col>
+          <Col>
+            <KojimaData onChange={this.saveAnswer.bind(this)} />
+          </Col>
+        </Row>
+        <Row>
+          <Button block variant="primary" onClick={this.discoverName.bind(this)}>Discover my name</Button>
+        </Row>
+      </Container>
+      <Container className={this.state.kojimaName ? 'visible' : 'invisible'}>
+        <Jumbotron>
+          <h1>Your Kojima Name is {this.state.kojimaName}</h1>
+          <p>It is in the <strong>{this.state.conditions.category}</strong> category. You can fill in your monologue below</p>
+          <p>Hi, I'm {this.state.kojimaName}, and if you're wondering how I got this name, let me tell you. I...</p>
+        </Jumbotron>
+      </Container>
+      </>
+      );
+  }
+};
 
 export default App;
