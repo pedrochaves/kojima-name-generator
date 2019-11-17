@@ -30,7 +30,7 @@ describe("A Violent Hideo Kojima name", () => {
         const diceRoll = 2;
         const kojimaName = generateKojimaName(answers, nameConditions, diceRoll);
         
-        expect(kojimaName).toBe("Cooking ??");
+        expect(kojimaName).toBe("Cooking American");
     });
 
     it("should be Mads Mikkelsen action + scientific term when D6 == 3", () => {
