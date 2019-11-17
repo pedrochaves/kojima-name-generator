@@ -6,9 +6,8 @@ import {
   Col,
   Jumbotron,
 } from 'react-bootstrap';
-import './App.css';
-import { Intro, PersonalData, KojimaData } from './components';
-import { determineNameConditions, generateKojimaName } from './engine';
+import { Intro, PersonalData, KojimaData } from '.';
+import { determineNameConditions, generateKojimaName } from '../engine';
 
 class App extends React.Component {
   constructor() {
